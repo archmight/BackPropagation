@@ -45,6 +45,23 @@ public class NeuralNet {
 
     }
 
+    public ArrayList<Integer> Lesson() {
+
+        ArrayList<Integer> Error;
+        Error = new ArrayList<>();
+        for (int i = 0; i < 100; ++i) {
+            Activation();
+            if (errorRootValue() < 0.0001) {
+                break;
+            }
+
+            System.out.println("@@@@@@" + errorRootValue());
+            Error.add((int) Math.round(errorRootValue() * 1000));
+            delta();
+            training();
+        }
+        return Error;
+    }
 
     public void deltaOutput() {
         for (int i = 0; i < net2.size(); i++) {
@@ -149,6 +166,12 @@ public class NeuralNet {
                 layers.get(1).getNeurons().get(i).getOutputSignals().getOutputSignals().get(j).IncreaseWeight(a);
             }
         }
+        System.out.println("###########");
+        for(int i = 0; i < layers.get(2).getSize(); ++i){
+            System.out.print(layers.get(2).getNeurons().get(i).getNeuronValue().getValue() +" ");
+        }
+        System.out.println();
+        System.out.println("###########");
     }
 
 
