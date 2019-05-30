@@ -29,10 +29,16 @@ class panel extends JPanel{
         super.paint(g);
         g.setColor(Color.MAGENTA);
         int x = 0;
-        for (Integer i = 0; i < Errors.size()-1; ++i) {
-            g.drawLine(5+i*5, 400 - Errors.get(i), 10+i*5, 400 - Errors.get(i+1));
 
-            g.drawString(( String.valueOf(i%10)),5+5*i,410);
+        g.drawString("250", 2, 250);
+        g.drawString("200", 2, 200);
+        g.drawString("150", 2, 250);
+        g.drawString("100", 2, 300);
+        g.drawString("50", 2, 350);
+        for (Integer i = 0; i < Errors.size()-1; ++i) {
+            g.drawLine(15+i*5, 400 - Errors.get(i), 20+i*5, 400 - Errors.get(i+1));
+
+            g.drawString(( String.valueOf(i%10)),15+5*i,410);
         }
     }
 
